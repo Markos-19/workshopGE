@@ -1,6 +1,0 @@
-const usuarios [
-    {username: "usuario1", password: "contraseña1", intentos: 0, blocked: false, balance: 5000}
-    {username: "usuario2", password: "contraseña2", intentos: 0, blocked: false, balance: 5000}
-];
-console.log(usuarios);
-

@@ -46,7 +46,7 @@ function extraer (usuario, monto) {
     }else{
         return 'SALDO INSUFICIENTE';
     }
-};
+}
 
 function transferencia (usuario1, usuario2, monto) {
     if (usuario1.balance >= monto) {
@@ -64,4 +64,4 @@ console.log('2.EXTRAER DINERO');
 console.log('3.TRANSFERIR DINERO');
 console.log('4. VER SALDO');
 console.log('5.SALIR')
-};
+}
