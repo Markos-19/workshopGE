@@ -73,13 +73,14 @@ function login(username, password) {
 };
 
 function eleccionPrograma(usuario, programa, campus){
-    if(usuario){
-        if(programasDisponibles[programa] && programasDisponibles[programa].campus[campus]){
+    if(usuario ){   
+        if(programasDisponibles[programa]!==undefined && programasDisponibles[programa].campus[campus]!==undefined){
         let cuposDisponibles = programasDisponibles[programa].campus[campus];
                 if(cuposDisponibles > 0) {
                 programasDisponibles[programa].campus[campus]--;
                 programasDisponibles[programa].cupos--;
-                usuario.programa = "programa";
+                const indiceUsuario= usuarios.findIndex((u) => u.username === usuario.username);
+                  usuarios[indiceUsuario].programa =programa;
                 return `CUPO RESERVADO EXITOSO`;
             } else {
                 return `NO HAY CUPOS DISPONIBLES EN EL CAMPUS SELECCIONADO`;
@@ -90,41 +91,18 @@ function eleccionPrograma(usuario, programa, campus){
         }else {
                 return `DEBE INICIAR SESION PARA ADQUIRIR UN CUPO`;
             }
-        }
+        } 
+      
     
 console.log(login("usuario1", "contraseña1"))
-console.log(eleccionPrograma("usuario1","informatica", "Manchester"));
+console.log(eleccionPrograma(usuario,"informatica", "Manchester"));
 console.log(login("usuario2", "contraseña2"))
-console.log(eleccionPrograma("usuario2","informatica", "Manchester"));
+console.log(eleccionPrograma(usuario,"informatica", "Manchester"));
 console.log(login("usuario3", "contraseña3"))
-console.log(eleccionPrograma("usuario1","informatica", "Manchester"));
+console.log(eleccionPrograma(usuario,"informatica", "Manchester"));
 console.log(login("usuario4", "contraseña4"))
-console.log(eleccionPrograma("usuario4","informatica", "Manchester"))
-console.log(login("usuario1", "contraseña1"));
+console.log(eleccionPrograma(usuario,"informatica", "Manchester"));
+console.log(login("usuario3", "contraseña3"));
+console.log(login("usuario1", "contraseña1"))
+git
 
-
-/*function registrarUsuariosNuevos (nombre, apellido, campus, programa) {
-    if (
-        programasDisponibles[programa] && 
-        programasDisponibles[programa].cupos > 0 && 
-        programasDisponible[programa].campus > 0
-    ) {
-    usuariosRegistrados.push({nombre, apellido, campus, programa});
-    programasDisponibles[programa].cupos--;
-    programasDisponible[programa].campus[campus]--;
-    return 'USUARIO REGISTRADO CON EXITO';
-}else{
-    for (let prog in programasDisponibles){
-        for (let camp in programasDisponibles[prog].campus){
-            if (programasDisponibles[prog].campus[camp] > 0){
-                return (prog + 'en' + camp);
-            }
-        }
-    }
-        return 'PROGRAMA NO DISPONIBLE'
-    }
-}
-
-
-console.log(registrarUsuariosNuevos("marcos, gonzalez, Manchester, informatica"));
-console.log(registrarUsuariosNuevos("marcos, gonzalez, Manchester, informatica"))*/
