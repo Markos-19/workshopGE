@@ -104,5 +104,5 @@ console.log(login("usuario4", "contraseña4"))
 console.log(eleccionPrograma(usuario,"informatica", "Manchester"));
 console.log(login("usuario3", "contraseña3"));
 console.log(login("usuario1", "contraseña1"))
-git
+
 
