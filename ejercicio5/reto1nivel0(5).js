@@ -1,4 +1,4 @@
-let informacionFinaciera = {
+let informacionFinanciera = {
     ingresos: 0,
     gastos:{
         hogar: [],
@@ -9,29 +9,32 @@ let informacionFinaciera = {
     },
 };
 
-function nuevoIngreso  (ingresos, monto) {
-     const entrada = ingresos + monto;
-     return nuevoIngreso
-    };
-//console.log(nuevoIngreso(0, 500))
+function nuevoIngreso  (monto) {
+     informacionFinanciera.ingresos += monto;
+     return informacionFinanciera.ingresos;
+    }
+console.log(nuevoIngreso(500))
 
-function registrarGastos (categorias, monto) {
-    informacionFinaciera.gastos[categorias] += monto;
-}
-
-//console.log(registrarGastos("ocio", 500))
+function registrarGastos (category, monto) {
+   
+    informacionFinanciera.gastos[category] = (informacionFinanciera.gastos[category] || 0);
+    informacionFinanciera.gastos[category] += monto;    
+    return informacionFinanciera.gastos[category];
+};
+console.log(registrarGastos("ocio", 500))
+console.log(registrarGastos("ocio", 500))
 
 function gastosCategorias (){
     let gastosCategorias = 0;
-    for (let categorias in informacionFinaciera.gastos){
-        gastosCategorias += informacionFinaciera.gastos.categorias;
+    for (let category in informacionFinanciera.gastos){
+        gastosCategorias += informacionFinanciera.gastos.category;
     } return gastosCategorias
 };
 
-//console.log(gastosCategorias)
+console.log(gastosCategorias)
 
 function chequeoEstadoFinanciero () {
-    let totalIngresos = informacionFinaciera.ingresos;
+    let totalIngresos = informacionFinanciera.ingresos;
     let totalGastos = gastosCategorias();
 
         if (totalGastos === totalIngresos) {
@@ -44,6 +47,5 @@ function chequeoEstadoFinanciero () {
     }
 console.log(nuevoIngreso(2000));
 console.log(registrarGastos("medicos", 500));
-console.log(registrarGastos("ocio", 1500));
-console.log(registrarGastos("ahorro", 500));
-console.log(chequeoEstadoFinanciero)
+console.log(registrarGastos("ocio", 500));
+console.log(registrarGastos("ahorro", 500))
